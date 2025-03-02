@@ -24,7 +24,15 @@ END
 LIMIT 3
 
 №2d
+INSERT INTO course (id, name, is_online, amoubt_of_students, college_id)
+VALUES (60, 'Machine Learning', false, 17, 20);
 
 №2e
-
-№2f
+SELECT id
+FROM course
+WHERE id NOT IN (SELECT id FROM student_on_course)
+UNION
+SELECT id
+FROM student_on_course
+WHERE id NOT IN (SELECT id FROM course)
+ORDER BY id;
