@@ -31,11 +31,15 @@ FROM student_on_course
 WHERE student_id IN (20,50)
 
 №2e
-SELECT 
-    student.id, 
-    student.name AS student_name, 
-    college.name AS college_name
-FROM student
-JOIN student_on_course_kn AS soc ON soc.student_id = student.id
-JOIN college ON college.id = student.college_id
-ORDER BY student.name;
+SELECT
+	student.name AS student_name,
+	soc.student_rating AS student_rating,
+	scn.name AS student_college_name,
+	course.name AS course_name,
+	ccn.name AS course_college_name
+FROM student_on_course_kn AS  soc
+JOIN student ON student.id = soc.student_id
+JOIN college AS scn ON student.id = scn.id
+JOIN course ON soc.course_id = course.id
+JOIN college AS ccn ON course.college_id = ccn.id
+ORDER BY student_name, course_name
