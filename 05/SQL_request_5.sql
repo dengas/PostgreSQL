@@ -22,12 +22,27 @@ WHERE s1.name <> s2.name
 ORDER BY s1.id
 
 №2c
-
+SELECT 
+	student.name as student_name,
+	course.name as course_date
+FROM student
+JOIN course ON student.college_id = course.college_id
+ORDER BY student_name
 
 №2d
-
+SELECT 
+	min(student_rating) as min_student_rating,
+	max(student_rating) as max_student_rating,
+	round(avg(student_rating), 2) as avg_student_rating,
+	sum(student_rating) as sum_student_rating
+FROM student_on_course
 
 №2e
-
+SELECT 
+	city
+FROM student
+GROUP BY city
+HAVING COUNT(city) = 2
+ORDER BY city
 
 №2f
