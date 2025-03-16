@@ -56,5 +56,3 @@ WITH RECURSIVE temp1 AS (
 SELECT студент, роль, уровень, "путь от лидера" 
 FROM temp1
 ORDER BY уровень, id
-
-№2d
